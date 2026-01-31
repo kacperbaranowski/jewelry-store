@@ -1,0 +1,517 @@
+/* Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Theme Variables */
+@theme {
+  /* Colors - Normal Mode */
+  --color-primary: #1a1a1a;
+  --color-accent: #c9a962;
+  --color-accent-dark: #b8954f;
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666666;
+  --color-border: #e5e5e5;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --spacing-container: 1.5rem;
+}
+
+/* Base Styles */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+html.font-large {
+  font-size: 18px;
+}
+
+html.font-x-large {
+  font-size: 20px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus Visible - WCAG */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  z-index: 9999;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ==================== */
+/* DARK MODE */
+/* ==================== */
+html.dark {
+  --color-background: #0f0f0f;
+  --color-surface: #1a1a1a;
+  --color-text: #f5f5f5;
+  --color-text-muted: #a3a3a3;
+  --color-border: #404040;
+  --color-primary: #f5f5f5;
+  --color-accent: #c9a962;
+}
+
+html.dark .bg-primary {
+  background-color: #1a1a1a !important;
+}
+
+html.dark footer {
+  background-color: #0a0a0a !important;
+}
+
+/* Dark mode buttons */
+html.dark .btn-primary,
+html.dark button[data-variant="primary"] {
+  background-color: #f5f5f5 !important;
+  color: #1a1a1a !important;
+  border-color: #f5f5f5 !important;
+}
+
+html.dark .btn-primary:hover,
+html.dark button[data-variant="primary"]:hover {
+  background-color: #e5e5e5 !important;
+  border-color: #e5e5e5 !important;
+}
+
+html.dark .btn-secondary,
+html.dark button[data-variant="secondary"] {
+  background-color: #c9a962 !important;
+  color: #000000 !important;
+  border-color: #c9a962 !important;
+}
+
+html.dark .btn-secondary:hover,
+html.dark button[data-variant="secondary"]:hover {
+  background-color: #b8954f !important;
+  border-color: #b8954f !important;
+}
+
+html.dark .btn-outline,
+html.dark button[data-variant="outline"] {
+  background-color: transparent !important;
+  color: #f5f5f5 !important;
+  border-color: #f5f5f5 !important;
+}
+
+html.dark .btn-outline:hover,
+html.dark button[data-variant="outline"]:hover {
+  background-color: #f5f5f5 !important;
+  color: #1a1a1a !important;
+}
+
+html.dark .btn-ghost,
+html.dark button[data-variant="ghost"] {
+  background-color: transparent !important;
+  color: #f5f5f5 !important;
+  border-color: transparent !important;
+}
+
+html.dark .btn-ghost:hover,
+html.dark button[data-variant="ghost"]:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Cards in dark mode */
+html.dark article,
+html.dark .bg-surface {
+  background-color: #1a1a1a !important;
+  border-color: #333333 !important;
+}
+
+/* Text colors in dark mode */
+html.dark .text-text {
+  color: #f5f5f5 !important;
+}
+
+html.dark .text-text-muted {
+  color: #a3a3a3 !important;
+}
+
+/* Links in dark mode */
+html.dark a {
+  color: #f5f5f5;
+}
+
+html.dark a:hover {
+  color: #c9a962;
+}
+
+/* ==================== */
+/* HIGH CONTRAST MODE */
+/* ==================== */
+html.high-contrast {
+  --color-background: #000000;
+  --color-surface: #000000;
+  --color-text: #ffffff;
+  --color-text-muted: #ffffff;
+  --color-border: #ffffff;
+  --color-accent: #ffff00;
+  --color-accent-dark: #ffff00;
+  --color-primary: #000000;
+}
+
+/* Focus */
+html.high-contrast :focus-visible {
+  outline: 3px solid #ffff00 !important;
+  outline-offset: 2px;
+}
+
+/* All text white */
+html.high-contrast body,
+html.high-contrast p,
+html.high-contrast span,
+html.high-contrast div,
+html.high-contrast li,
+html.high-contrast label {
+  color: #ffffff;
+}
+
+/* Headings */
+html.high-contrast h1,
+html.high-contrast h2,
+html.high-contrast h3,
+html.high-contrast h4,
+html.high-contrast h5,
+html.high-contrast h6 {
+  color: #ffffff !important;
+}
+
+/* Links - NOT cyan everywhere, just underlined white */
+html.high-contrast a {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+html.high-contrast a:hover {
+  color: #ffff00 !important;
+}
+
+/* Navigation links - no underline */
+html.high-contrast nav a {
+  text-decoration: none;
+}
+
+html.high-contrast nav a:hover {
+  color: #ffff00 !important;
+}
+
+/* High contrast buttons */
+html.high-contrast .btn-primary,
+html.high-contrast .btn-secondary,
+html.high-contrast button[data-variant="primary"],
+html.high-contrast button[data-variant="secondary"] {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: 2px solid #ffff00 !important;
+}
+
+html.high-contrast .btn-primary:hover,
+html.high-contrast .btn-secondary:hover,
+html.high-contrast button[data-variant="primary"]:hover,
+html.high-contrast button[data-variant="secondary"]:hover {
+  background-color: #cccc00 !important;
+  border-color: #cccc00 !important;
+}
+
+html.high-contrast .btn-outline,
+html.high-contrast button[data-variant="outline"] {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+html.high-contrast .btn-outline:hover,
+html.high-contrast button[data-variant="outline"]:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.high-contrast .btn-ghost,
+html.high-contrast button[data-variant="ghost"] {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+html.high-contrast .btn-ghost:hover,
+html.high-contrast button[data-variant="ghost"]:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Cards and surfaces */
+html.high-contrast .bg-surface,
+html.high-contrast [class*="bg-white"],
+html.high-contrast article,
+html.high-contrast .rounded-lg {
+  background-color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* Header */
+html.high-contrast header {
+  background-color: #000000 !important;
+  border-bottom: 2px solid #ffffff !important;
+}
+
+/* Header icon links - no border box */
+html.high-contrast header a.rounded-lg,
+html.high-contrast header button.rounded-lg {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+html.high-contrast header a.rounded-lg:hover,
+html.high-contrast header button.rounded-lg:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+html.high-contrast header a.rounded-lg:focus-visible,
+html.high-contrast header button.rounded-lg:focus-visible {
+  outline: 3px solid #ffff00 !important;
+  outline-offset: 2px;
+}
+
+/* Header counter badges */
+html.high-contrast header .rounded-full {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: none !important;
+}
+
+/* Footer */
+html.high-contrast footer {
+  background-color: #000000 !important;
+  border-top: 2px solid #ffffff !important;
+}
+
+html.high-contrast footer a {
+  color: #ffffff !important;
+}
+
+html.high-contrast footer a:hover {
+  color: #ffff00 !important;
+}
+
+/* Hero sections */
+html.high-contrast .hero-section,
+html.high-contrast .bg-primary {
+  background-color: #000000 !important;
+}
+
+html.high-contrast .hero-section .text-white,
+html.high-contrast .hero-section p,
+html.high-contrast .hero-section span {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+html.high-contrast .hero-section .text-accent,
+html.high-contrast .text-accent {
+  color: #ffff00 !important;
+}
+
+/* Hero buttons */
+html.high-contrast .hero-section button.hero-btn-primary,
+html.high-contrast .hero-btn-primary {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: 2px solid #ffff00 !important;
+}
+
+html.high-contrast .hero-section button.hero-btn-outline,
+html.high-contrast .hero-btn-outline {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+html.high-contrast .hero-section button.hero-btn-outline:hover,
+html.high-contrast .hero-btn-outline:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Form inputs */
+html.high-contrast input,
+html.high-contrast textarea,
+html.high-contrast select {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+html.high-contrast input::placeholder,
+html.high-contrast textarea::placeholder {
+  color: #cccccc !important;
+}
+
+html.high-contrast input:focus,
+html.high-contrast textarea:focus,
+html.high-contrast select:focus {
+  border-color: #ffff00 !important;
+}
+
+/* Badges in high contrast */
+html.high-contrast .badge-default,
+html.high-contrast .badge-sale,
+html.high-contrast .badge-new,
+html.high-contrast .badge-out-of-stock,
+html.high-contrast span[data-variant] {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: 2px solid #ffff00 !important;
+  font-weight: 700 !important;
+}
+
+/* Badges in dark mode */
+html.dark .badge-new {
+  background-color: #c9a962 !important;
+  color: #000000 !important;
+}
+
+/* Product cards */
+html.high-contrast article img {
+  border: 2px solid #ffffff;
+}
+
+/* Icons in high contrast - make them visible */
+html.high-contrast svg {
+  stroke: currentColor;
+}
+
+html.high-contrast .text-accent svg,
+html.high-contrast [class*="text-accent"] svg {
+  stroke: #ffff00;
+}
+
+/* Muted text should still be readable */
+html.high-contrast .text-text-muted,
+html.high-contrast [class*="text-muted"],
+html.high-contrast .text-white\/80,
+html.high-contrast .text-white\/70,
+html.high-contrast .text-white\/50 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Borders */
+html.high-contrast .border,
+html.high-contrast .border-border,
+html.high-contrast [class*="border-"] {
+  border-color: #ffffff !important;
+}
+
+/* Remove shadows */
+html.high-contrast [class*="shadow"] {
+  box-shadow: none !important;
+}
+
+/* Radio/checkbox styling */
+html.high-contrast input[type="radio"],
+html.high-contrast input[type="checkbox"] {
+  accent-color: #ffff00;
+}
+
+/* Selection in high contrast */
+html.high-contrast ::selection {
+  background-color: #ffff00;
+  color: #000000;
+}
+
+/* ==================== */
+/* HEADINGS - inherit color */
+/* ==================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Buttons Base */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Form Elements */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
