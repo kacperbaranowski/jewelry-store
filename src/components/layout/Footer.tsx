@@ -103,7 +103,18 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/50">
-            © 2024 Aurelius. Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} Aurelius. Wszelkie prawa zastrzeżone.
+          </p>
+          <p className="text-sm text-white/50">
+            Design & Development by{' '}
+            <a
+              href="https://kacperbaranowski.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-white transition-colors"
+            >
+              kacperbaranowski.dev
+            </a>
           </p>
           <div className="flex gap-6">
             <a
